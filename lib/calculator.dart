@@ -1,8 +1,5 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
 class calculator extends StatefulWidget {
   const calculator({Key? key}) : super(key: key);
 
@@ -14,13 +11,15 @@ class calculator extends StatefulWidget {
 // ignore: camel_case_types
 class _calculatorState extends State<calculator> {
   Widget calcbutton(String btntxt, Color btnColor, Color txtColor) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: () {
         calculation(btntxt);
       },
-      shape: const CircleBorder(),
-      color: btnColor,
-      padding: const EdgeInsets.all(20),
+      style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+        backgroundColor: btnColor,
+        padding: const EdgeInsets.all(20),
+      ),
       child: Text(
         btntxt,
         style: TextStyle(
@@ -37,7 +36,7 @@ class _calculatorState extends State<calculator> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text(
-          "Calculator",
+          "Kalkulator Sederhana",
         ),
         backgroundColor: Colors.black,
       ),
@@ -65,60 +64,78 @@ class _calculatorState extends State<calculator> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 calcbutton('C', Colors.grey, Colors.white),
-                calcbutton('+/-', Colors.grey, Colors.white),
-                calcbutton('%', Colors.grey, Colors.white),
-                calcbutton('/', Colors.orange, Colors.white),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                calcbutton('7', Colors.grey.shade800, Colors.white),
-                calcbutton('8', Colors.grey.shade800, Colors.white),
-                calcbutton('9', Colors.grey.shade800, Colors.white),
-                calcbutton('x', Colors.orange, Colors.white),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                calcbutton('4', Colors.grey.shade800, Colors.white),
-                calcbutton('5', Colors.grey.shade800, Colors.white),
-                calcbutton('6', Colors.grey.shade800, Colors.white),
-                calcbutton('-', Colors.orange, Colors.white),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                calcbutton('1', Colors.grey.shade800, Colors.white),
-                calcbutton('2', Colors.grey.shade800, Colors.white),
-                calcbutton('3', Colors.grey.shade800, Colors.white),
-                calcbutton('+', Colors.orange, Colors.white),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () {
                     calculation('0');
                   },
-                  shape: const StadiumBorder(),
-                  padding: const EdgeInsets.fromLTRB(34, 20, 128, 20),
-                  color: Colors.grey.shade800,
+                  style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    padding: const EdgeInsets.fromLTRB(10,12.5,10,12.5),
+                    backgroundColor: Colors.grey,
+                  ),
+                  child: const Text(
+                    '+/-',
+                    style: TextStyle(
+                      fontSize: 35,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                calcbutton('%', Colors.grey, Colors.white),
+                calcbutton('/', Colors.grey, Colors.white),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calcbutton('7', Colors.blueGrey, Colors.white),
+                calcbutton('8', Colors.blueGrey, Colors.white),
+                calcbutton('9', Colors.blueGrey, Colors.white),
+                calcbutton('x', Colors.grey, Colors.white),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calcbutton('4', Colors.blueGrey, Colors.white),
+                calcbutton('5', Colors.blueGrey, Colors.white),
+                calcbutton('6', Colors.blueGrey, Colors.white),
+                calcbutton('-', Colors.grey, Colors.white),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                calcbutton('1', Colors.blueGrey, Colors.white),
+                calcbutton('2', Colors.blueGrey, Colors.white),
+                calcbutton('3', Colors.blueGrey, Colors.white),
+                calcbutton('+', Colors.grey, Colors.white),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    calculation('0');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    padding: const EdgeInsets.fromLTRB(20, 10, 100, 10),
+                    backgroundColor: Colors.blueGrey,
+                  ),
                   child: const Text(
                     '0',
                     style: TextStyle(
@@ -127,8 +144,8 @@ class _calculatorState extends State<calculator> {
                     ),
                   ),
                 ),
-                calcbutton('.', Colors.grey.shade800, Colors.white),
-                calcbutton('=', Colors.orange, Colors.white),
+                calcbutton('.', Colors.blueGrey, Colors.white),
+                calcbutton('=', Colors.grey, Colors.white),
               ],
             ),
           ],
